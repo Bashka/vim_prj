@@ -49,11 +49,16 @@ vim_lib		https://github.com/Bashka/vim_lib
 	filetype plugin indent on
 
 Если используется менеджер плагинов Vundle, можно расположить вторую команду
-среди объявлений используемых плагинов, опустив первую и третью команду (они
-обязательны в Vundle):
+перед третьей (они обязательны в Vundle):
 >
+	filetype off
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
 	Plugin 'Bashka/vim_prj'
+	...
+	call vundle#end()
 	let &g:rtp = '.vimprj,' . &g:rtp
+	filetype plugin indent on
 
 ================================================================================
 4. Использование					*vim_prj-use*
