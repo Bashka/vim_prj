@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 10:48:16
-" Last Change: 2015-01-18 11:46:31
+" Last Change: 2015-01-18 15:35:58
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -10,12 +10,13 @@ let s:p = s:Plugin.new('vim_prj', '1')
 
 function! s:p.run() " {{{
   let self.global = $VIMRUNTIME
-  if has('win16') || has('win32') || has('win64') || has('win95')
-    let self.user = $HOME . '\vimfiles'
-  else
-    let self.user = $HOME . '/.vim'
+  let self.user = $HOME . s:File.slash . 'vimfiles'
+  let l:prjDir = s:File.relative('.vimprj')
+  let self.prj = l:prjDir.getAddress()
+  let l:vimrc = l:prjDir.getChild('vimrc.vim')
+  if l:vimrc.isExists()
+    exec 'source ' . l:vimrc.getAddress()
   endif
-  let self.prj = s:File.relative('.vimprj').getAddress()
 endfunction " }}}
 
 call s:p.comm('VimPrjCreate', 'createPrj') " Создание каталога проекта
