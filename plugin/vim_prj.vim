@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 10:48:16
-" Last Change: 2015-01-22 10:02:18
+" Last Change: 2015-01-22 11:15:49
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -24,7 +24,7 @@ function! s:p.run() " {{{
   " Сохранение и восстановление последней сессии проекта. {{{
   if self.savesession && l:prjDir.isExists()
     au VimLeavePre * set sessionoptions=folds,winsize,help,curdir,options | exe 'mksession! .vimprj' . vim_lib#base#File#.slash . 'session.vim'
-    au VimEnter * exe 'so .vimprj' . vim_lib#base#File#.slash . 'session.vim'
+    au VimEnter * exe 'silent! so .vimprj' . vim_lib#base#File#.slash . 'session.vim' | silent! echo vim_lib#sys#Publisher# | call vim_lib#sys#Publisher#.new().fire('VimPrjLoadSession')
   endif
   " }}}
   " Исполнение скрипта .vimprj/vimrc.vim {{{
