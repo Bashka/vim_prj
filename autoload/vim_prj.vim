@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 11:28:44
-" Last Change: 2015-02-02 22:14:43
+" Last Change: 2015-02-02 23:08:56
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -35,5 +35,6 @@ endfunction " }}}
 function! vim_prj#loadSession() " {{{
   if filereadable('.vimprj' . s:File.slash . 'session.vim')
     exe 'silent! so .vimprj' . s:File.slash . 'session.vim'
+    call s:Publisher.new().fire('VimPrjLoadSession')
   endif
 endfunction " }}}
