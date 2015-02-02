@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 11:28:44
-" Last Change: 2015-02-01 13:45:56
+" Last Change: 2015-02-02 22:14:43
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -25,7 +25,7 @@ endfunction " }}}
 " Метод сохраняет текущую сессию в файл .vimprj/session.vim
 "" }}}
 function! vim_prj#saveSession() " {{{
-  set sessionoptions=folds,winsize,help,curdir
+  set sessionoptions=folds,winsize,help,curdir,localoptions
   exe 'mksession! .vimprj' . s:File.slash . 'session.vim'
 endfunction " }}}
 
@@ -35,7 +35,5 @@ endfunction " }}}
 function! vim_prj#loadSession() " {{{
   if filereadable('.vimprj' . s:File.slash . 'session.vim')
     exe 'silent! so .vimprj' . s:File.slash . 'session.vim'
-    filetype detect
-    call s:Publisher.new().fire('VimPrjLoadSession')
   endif
 endfunction " }}}
