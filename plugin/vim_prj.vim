@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 10:48:16
-" Last Change: 2015-02-03 10:00:41
+" Last Change: 2015-02-04 12:20:44
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -35,5 +35,5 @@ function! s:p.run() " {{{
   " }}}
 endfunction " }}}
 
-call s:p.comm('VimPrjCreate', 'createPrj') " Создание каталога проекта
+call s:p.comm('VimPrjCreate', 'createPrj()') " Создание каталога проекта
 call s:p.reg()
