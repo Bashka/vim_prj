@@ -4,9 +4,12 @@ vim_prj-comm-create	vim_prj.rux	/*vim_prj-comm-create*
 vim_prj-commands	vim_prj.rux	/*vim_prj-commands*
 vim_prj-description	vim_prj.rux	/*vim_prj-description*
 vim_prj-event-create	vim_prj.rux	/*vim_prj-event-create*
+vim_prj-event-loadsession	vim_prj.rux	/*vim_prj-event-loadsession*
 vim_prj-events	vim_prj.rux	/*vim_prj-events*
-vim_prj-opt-dirprj	vim_prj.rux	/*vim_prj-opt-dirprj*
-vim_prj-options	vim_prj.rux	/*vim_prj-options*
+vim_prj-install	vim_prj.rux	/*vim_prj-install*
+vim_prj-opt	vim_prj.rux	/*vim_prj-opt*
+vim_prj-opt-savesession	vim_prj.rux	/*vim_prj-opt-savesession*
+vim_prj-opt-vimrc	vim_prj.rux	/*vim_prj-opt-vimrc*
 vim_prj-requirements	vim_prj.rux	/*vim_prj-requirements*
 vim_prj-use	vim_prj.rux	/*vim_prj-use*
 vim_prj.txt	vim_prj.rux	/*vim_prj.txt*

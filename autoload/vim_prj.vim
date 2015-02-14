@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 11:28:44
-" Last Change: 2015-02-02 23:08:56
+" Last Change: 2015-02-13 17:28:46
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -13,12 +13,13 @@ function! vim_prj#createPrj() " {{{
   let l:dirprj = s:File.relative('.vimprj')
   if !l:dirprj.isExists()
     call l:dirprj.createDir()
-    call s:Publisher.new().fire('VimPrjCreate', {'dirprj': l:dirprj})
+    call s:Publisher.new().fire('VimPrjCreate', {'dirprj': l:dirprj.getDir().getAddress()})
   endif
   let l:vimrc = l:dirprj.getChild('vimrc.vim')
   if !l:vimrc.isExists()
     call l:vimrc.createFile()
   endif
+  call g:vim_prj#.run()
 endfunction " }}}
 
 "" {{{
