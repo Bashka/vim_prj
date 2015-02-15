@@ -80,7 +80,7 @@ vim_lib		https://github.com/Bashka/vim_lib
   3. Плагины, не зависящие от vim_prj
   4. Плагин vim_prj
   5. Скрипт .vimprj/vimrc.vim
-  6. Остальные плагины каталога .vimrc
+  6. Остальные плагины каталога .vim
   7. Плагины каталога .vimprj
   8. Скрипты .vim/ftplugin
   9. Скрипты .vimprj/ftplugin

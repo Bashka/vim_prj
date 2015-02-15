@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 10:48:16
-" Last Change: 2015-02-13 17:13:12
+" Last Change: 2015-02-15 12:09:27
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -23,7 +23,7 @@ function! s:p.run() " {{{
   let self.prj = l:prjDir.getAddress()
   " }}}
   " Сохранение и восстановление последней сессии проекта. {{{
-  if self.savesession && l:prjDir.isExists()
+  if l:prjDir.isExists()
     call s:System.au('VimLeavePre', function('vim_prj#saveSession'))
     call s:System.au('VimEnter', function('vim_prj#loadSession'))
   endif
