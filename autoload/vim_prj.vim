@@ -1,10 +1,11 @@
 " Date Create: 2015-01-17 11:28:44
-" Last Change: 2015-02-15 12:11:53
+" Last Change: 2015-02-22 14:40:37
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
 let s:File = vim_lib#base#File#
 let s:Publisher = vim_lib#sys#Publisher#
+let s:Content = vim_lib#sys#Content#.new()
 
 "" {{{
 " Метод создает каталог проекта для текущего проекта.
@@ -36,7 +37,7 @@ endfunction " }}}
 " Метод загружает сессию из файла .vimprj/session.vim
 "" }}}
 function! vim_prj#loadSession() " {{{
-  if g:vim_prj#.savesession && filereadable('.vimprj' . s:File.slash . 'session.vim')
+  if bufname('%') == '' && s:Content.isEmpty() && g:vim_prj#.savesession && filereadable('.vimprj' . s:File.slash . 'session.vim')
     exe 'silent! so .vimprj' . s:File.slash . 'session.vim'
     call s:Publisher.new().fire('VimPrjLoadSession')
   endif
