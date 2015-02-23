@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 10:48:16
-" Last Change: 2015-02-16 14:09:34
+" Last Change: 2015-02-23 10:29:19
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -10,6 +10,9 @@ let s:System = vim_lib#sys#System#.new()
 let s:p = s:Plugin.new('vim_prj', '1')
 let s:p.vimrc = 1
 let s:p.savesession = 1
+if !exists('g:vim_prj#opt')
+  let g:vim_prj#opt = {}    " Опции проекта.
+endif
 
 function! s:p.run() " {{{
   " Определение адресов каталогов скриптов. {{{
