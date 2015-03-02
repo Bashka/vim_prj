@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 11:28:44
-" Last Change: 2015-02-22 14:40:37
+" Last Change: 2015-03-03 01:25:19
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -41,4 +41,12 @@ function! vim_prj#loadSession() " {{{
     exe 'silent! so .vimprj' . s:File.slash . 'session.vim'
     call s:Publisher.new().fire('VimPrjLoadSession')
   endif
+endfunction " }}}
+
+"" {{{
+" Метод определяет, является ли текущий каталог корневым каталогом проекта.
+" @return bool true - если текущий каталог содержит каталог .vimprj, иначе - false.
+"" }}}
+function! vim_prj#isPrj() " {{{
+  return s:File.relative('.vimprj').isExists()
 endfunction " }}}
