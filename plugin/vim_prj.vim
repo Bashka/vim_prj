@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 10:48:16
-" Last Change: 2015-02-23 10:29:19
+" Last Change: 2015-03-03 20:44:16
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -8,7 +8,6 @@ let s:File = vim_lib#base#File#
 let s:System = vim_lib#sys#System#.new()
 
 let s:p = s:Plugin.new('vim_prj', '1')
-let s:p.vimrc = 1
 let s:p.savesession = 1
 if !exists('g:vim_prj#opt')
   let g:vim_prj#opt = {}    " Опции проекта.
@@ -22,7 +21,7 @@ function! s:p.run() " {{{
   else
     let self.user = $HOME . s:File.slash . '.vim'
   endif
-  let l:prjDir = s:File.relative('.vimprj')
+  let l:prjDir = s:File.relative('.vim')
   let self.prj = l:prjDir.getAddress()
   " }}}
   " Сохранение и восстановление последней сессии проекта. {{{
@@ -31,12 +30,7 @@ function! s:p.run() " {{{
     call s:System.au('VimEnter', function('vim_prj#loadSession'))
   endif
   " }}}
-  " Исполнение скрипта .vimprj/vimrc.vim {{{
-  let l:vimrc = l:prjDir.getChild('vimrc.vim')
-  if self.vimrc && l:vimrc.isExists()
-    exec 'source ' . l:vimrc.getAddress()
-  endif
-  " }}}
+  set exrc
 endfunction " }}}
 
 call s:p.menu('CreatePrj', 'createPrj')

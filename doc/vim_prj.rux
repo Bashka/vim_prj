@@ -91,7 +91,8 @@ vim_lib). Это позволит выполнить файл '.vimprj/vimrc.vim
   6. Остальные плагины каталога .vim
   7. Плагины каталога .vimprj
   8. Скрипты .vim/ftplugin
-  9. Скрипты .vimprj/ftplugin
+  9. Скрипты $VIMRUNTIME/ftplugin
+  10. Скрипты .vimprj/ftplugin
 
 Такой порядок загрузки позволяет скрипту .vimrc переопределить глобальные
 скрипты, а скрипту .vimprj/vimrc.vim переопределить .vimrc. Это означает, что
