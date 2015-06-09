@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 11:28:44
-" Last Change: 2015-03-04 11:45:34
+" Last Change: 2015-06-09 04:48:02
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -16,10 +16,28 @@ function! vim_prj#createPrj() " {{{
     call l:dirprj.createDir()
     call s:Publisher.new().fire('VimPrjCreate', {'dirprj': l:dirprj.getDir().getAddress()})
   endif
+
+  let l:pluginsFile = l:dirprj.getChild('plugins.vim')
+  if !l:pluginsFile.isExists()
+    call l:pluginsFile.createFile()
+  endif
+
+  let l:bundleDir = l:dirprj.getChild('bundle')
+  if !l:bundleDir.isExists()
+    call l:bundleDir.createDir()
+  endif
+
   let l:vimrc = s:File.relative('.vimrc')
   if !l:vimrc.isExists()
     call l:vimrc.createFile()
+    call l:vimrc.rewrite([
+          \  'filetype off',
+          \  "call vim_lib#sys#Autoload#init('.vim', 'bundle')",
+          \  'so .vim/plugins.vim',
+          \  'filetype indent plugin on',
+          \])
   endif
+
   call g:vim_prj#.run()
 endfunction " }}}
 
