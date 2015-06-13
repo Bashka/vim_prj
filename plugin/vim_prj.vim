@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 10:48:16
-" Last Change: 2015-03-16 12:31:11
+" Last Change: 2015-06-13 15:01:00
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -9,9 +9,13 @@ let s:System = vim_lib#sys#System#.new()
 
 let s:p = s:Plugin.new('vim_prj', '1')
 "" {{{
-" @var bool true - если следует выполнять сохранение и восстановление последней сессии пользователя.
+" @var bool true - если следует выполнять сохранение последней сессии пользователя.
 "" }}}
 let s:p.savesession = 1
+"" {{{
+" @var bool true - если следует выполнять восстановление последней сессии пользователя.
+"" }}}
+let s:p.loadsession = 1
 if !exists('g:vim_prj#opt')
   "" {{{
   " @var hash Свойства проекта.
@@ -42,11 +46,27 @@ endfunction " }}}
 "" {{{
 " Создать новый проект в текущем каталоге.
 "" }}}
-call s:p.menu('CreatePrj', 'createPrj')
+call s:p.menu('CreatePrj', 'createPrj', 1)
+"" {{{
+" Сохранить текущую сессию проекта.
+"" }}}
+call s:p.menu('SaveSession', 'saveSession', 2)
+"" {{{
+" Восстановить последнюю сессию проекта.
+"" }}}
+call s:p.menu('LoadSession', 'loadSession', 3)
 
 "" {{{
 " Создать новый проект в текущем каталоге.
 "" }}}
 call s:p.comm('VimPrjCreate', 'createPrj()')
+"" {{{
+" Сохранить текущую сессию проекта.
+"" }}}
+call s:p.comm('VimPrjSaveSession', 'saveSession()')
+"" {{{
+" Восстановить последнюю сессию проекта.
+"" }}}
+call s:p.comm('VimPrjLoadSession', 'loadSession()')
 
 call s:p.reg()

@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 11:28:44
-" Last Change: 2015-06-09 04:48:02
+" Last Change: 2015-06-13 14:57:07
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -55,7 +55,7 @@ endfunction " }}}
 " Метод загружает сессию из файла .vim/session.vim
 "" }}}
 function! vim_prj#loadSession() " {{{
-  if g:vim_prj#.savesession && 
+  if g:vim_prj#.loadsession && 
    \ bufname('%') == '' && 
    \ s:Content.isEmpty() && 
    \ vim_prj#isPrj() && 
