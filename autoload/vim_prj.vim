@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 11:28:44
-" Last Change: 2015-06-13 14:57:07
+" Last Change: 2015-06-16 00:00:39
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -46,7 +46,7 @@ endfunction " }}}
 "" }}}
 function! vim_prj#saveSession() " {{{
   if g:vim_prj#.savesession && vim_prj#isPrj()
-    set sessionoptions=folds,winsize,help,curdir,localoptions
+    set sessionoptions=folds,winsize,help,curdir,localoptions,tabpages
     exe 'mksession! .vim' . s:File.slash . 'session.vim'
   endif
 endfunction " }}}
