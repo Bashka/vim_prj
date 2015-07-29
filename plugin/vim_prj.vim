@@ -1,5 +1,5 @@
 " Date Create: 2015-01-17 10:48:16
-" Last Change: 2015-06-13 15:01:00
+" Last Change: 2015-07-29 14:18:01
 " Author: Artur Sh. Mamedbekov (Artur-Mamedbekov@yandex.ru)
 " License: GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
 
@@ -41,6 +41,7 @@ function! s:p.run() " {{{
   endif
   " }}}
   set exrc
+  set nosecure
 endfunction " }}}
 
 "" {{{
